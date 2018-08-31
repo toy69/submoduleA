@@ -1,0 +1,11 @@
+		hostAndPortsSupplier = ()->{
+			HostsAndPort hostsAndPort = hostsAndPortSupplier.get();
+			int port = hostsAndPort.port;
+			List<String> hosts = hostsAndPort.clusterHosts;
+			Set<HostAndPort> hostAndPorts = new HashSet<HostAndPort>();
+			for (String host : hosts) {
+				hostAndPorts.add(new HostAndPort(host , port));
+			}
+			return hostAndPorts;
+		};
+
